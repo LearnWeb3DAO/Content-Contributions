@@ -5,3 +5,10 @@ This repo is meant to be an ad-hoc solution for community members to contribute 
 Please create a pull request following the PR template, and we will review your submission.
 
 Thank you a lot for your help <3
+
+# Freshman - FAQ
+
+Issues learners have faced while working on the Freshman Track and their potential solutions.
+
+Q.
+A.
