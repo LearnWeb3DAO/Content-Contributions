@@ -1,0 +1,61 @@
+Technical Knowledge Base (Freshman Track)                                       Updated Till: 12/18/2021
+########################################################################################################
+
+1.Does the genesis block contain only 1 transaction ?
+
+Ans.Not necessary.Genesis block is the absolute first block right so it contains a batch of the very first few txns on chain
+The difference it it's the only block that isn't linked to a parent block
+There's nothing before it
+
+
+2.Validating a bad block leads to a penalty for the participant in the proof of stake validation process. What exactly can we say is a bad block ?
+
+Ans.If a miner tries to put forth a fake transaction that actually wasn't possible (double spend, invalid signature, no funds, etc)
+
+3.How can we differentiate between local and global variables, since both are declared inside a function? The only difference I see is that timestamp and sender hold block related information. Does holding such information make them a global variable automatically?
+
+Ans.Yes it does because they tell you the information about the Blockchain and the block itself and not about the smart contract.
+Local variables can only tell you about  the state within a function.
+
+4.Is Yul language in the course, or an introduction of it ? Saw it in the remix under the drop down menu of supported languages along with solidity. I have completely no idea about it, and don't know whether it will be useful in the web3 ecosystem
+
+Ans.It is something that eth ecosystem is trying to adapt to but there aren't enough resources to learn it right now. For the learning, I think it's best to do Solidity because most of the jobs require Solidity but I guess in the future we can add it in the course. 
+
+Yul is a much lower level language (I.e. Closer to the hardware compared to Solidity). You have to read/write from storage locations in memory manually in Yul, it's kind of like using Assembly code.
+
+Solidity is higher level, and allows you to hide the lower level machine code complexity through its abstractions
+Yul is definitely not beginner focused and also still pretty early.
+
+5.Can we declare global variables outside functions ?
+
+Ans.Global variables are something which don't need to be declared, they are already given to us. You can assign the value of a global variable to local or state
+Here is a list: https://docs.soliditylang.org/en/v0.8.9/units-and-global-variables.html
+To add into that, global variables are injected by the ethereum virtual machine. So things like the address of the user who called the function (msg.sender), the block hash, block timestamp, etc are global variables - you don't need to declare them
+
+6.The skill-test of remix had a Q whose answer was : Remix does not provide testnet ETH...But remix gave 100 eth as test...so is the given eth of any testnet or just for local deployment..
+
+Ans.I think that one's a tricky question - the 100 fake Ether that remix gives is for the "javascript vm" environment. Is the simulator a real Testnet?
+
+7.Can we call a local var holding a global variable as a global var ( like uint t = block.timestamp)?
+
+Ans."t" will still be a local variable, as it's scope is limited to the locality. It has the same value as the global var within its scope but that doesn't make it a global var as you can't access it outside that scope. Local, global etc have to do with locality of variables not their values per se.
+
+8.Is it necessary to write public, view, and returns in the same order ?
+
+Ans.Public and view order doesn't matter."returns" isn't standalone firstly - the (uint) is part of it You're saying the function will return a uint. Return statements always need to be at the end. Will add this to the module too!
+
+9.Is uint[10] public myFixedSizeArr; and uint public myFixedSizeArr[10]; same ?
+
+Ans.No, the first one is specifying the type of uint[10] saying I want 10 units in the array. The second one you're accessing a specific index in the array (index 10).
+
+Though you're not doing anything with it so it will likely just be a syntax error
+uint[10] is a type 
+myFixedArr is the variable 
+myFixexArr[10] is accessing an index in that variable
+Also you can't declare a variable like this, it would have to be something like this uint public temp  = myFixedSizeArr[10];
+
+10.how are smart contracts actually executed?
+Ans.This is a good article you can read :https://www.kaleido.io/blockchain-blog/what-are-smart-contracts-and-how-do-they-work
+
+
+
